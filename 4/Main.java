@@ -7,8 +7,8 @@ public class Main {
     }
 
     private static int add(int x, int y) {
-        if (y==0) return x;
-        return add(x^y,(x&y)<<1);
+        return y == 0 ? x :
+                        add(x^y,(x&y)<<1);
     }
 
     private static int subtract(int x, int y) {
@@ -23,9 +23,9 @@ public class Main {
     private static int multiply(int x, int y) {
         int res = 0, count = 0;
         while (y > 0) {
-            if ((y & 1) == 1)
+            if ((y & 1) == 1) {
                 res = add(res, x << count);
-
+            }
             count = add(count, 1);
             y >>= 1;
         }
@@ -51,7 +51,7 @@ public class Main {
     }
 
     private static int gcd(int a, int b) {
-        if (b == 0) return a;
-        return gcd(b, mod(a, b));
+        return b == 0 ? a:
+                          gcd(b, mod(a, b));
     }
 }
