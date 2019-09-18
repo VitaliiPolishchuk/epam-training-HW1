@@ -6,9 +6,7 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) {
         while (true) {
-            BufferedReader reader =
-                    new BufferedReader(new InputStreamReader(System.in));
-            try {
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
                 String binaryNumber = reader.readLine();
                 if(!isValidBinaryNumber(binaryNumber)) System.out.println("Error, not valid binary number");
                 else System.out.println(convertBinaryToDecimal(binaryNumber));

@@ -11,19 +11,13 @@ public class Main {
         System.out.println(getCountBitSpace(-1000L));
     }
 
-    private static int getCountBitSpace(Number num){
-        long numL = num.longValue();
-        for(int i = getCountBit(num) - 1; i >= 0; --i) {
-            if ((numL & (1L << i)) != 0) return i + 1;
-        }
-        return 0;
-    }
-
-    private static int getCountBit(Number num){
-        if(num instanceof Byte) return Byte.SIZE;
-        else if(num instanceof Short) return Short.SIZE;
-        else if(num instanceof Integer) return Integer.SIZE;
-        else return Long.SIZE;
+    private static int getCountBitSpace(long num){
+	int res = 0;
+	while(num != 0){
+	    num >>= 1;
+	    ++res;
+	}
+	return res;
     }
 }
 

@@ -7,7 +7,7 @@ public class Main {
     }
 
     private static int changeBit(int num, int pos, int target){
-        if(target == 1) return num |= 1 << pos;
-        else return num &= ~(1 << pos);
+        if(target == 1) return num | (1 << pos);
+        else return num & (~(1 << pos));
     }
 }
