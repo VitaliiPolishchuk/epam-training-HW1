@@ -8,8 +8,12 @@ public class Main {
         while (true) {
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
                 int negativeNumber = Integer.parseInt(reader.readLine());
-                if(negativeNumber == Integer.MIN_VALUE) System.out.println("Out of range");
-                else System.out.println(convertNegativeToPositive(negativeNumber));
+                if(negativeNumber == Integer.MIN_VALUE) {
+                    System.out.println("Out of range");
+                }
+                else {
+                    System.out.println(convertNegativeToPositive(negativeNumber));
+                }
             } catch (Exception e) {
                 System.out.println("Error during reading input");
             }
@@ -21,7 +25,7 @@ public class Main {
     }
 
     private static int addNumbers(int x, int y) {
-        if (y==0) return x;
-        return addNumbers(x^y,(x&y)<<1);
+        return y == 0 ? x :
+                        addNumbers(x^y,(x&y)<<1);
     }
 }
